@@ -1,0 +1,121 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   
+}
+body{
+    background: linear-gradient(#4f87ff, #ffffff);
+}
+.game-board{
+    width: 100%;
+    height: 500px;
+    border-bottom: 15px solid #028b0e; /* espessura da linha da div forma da linha e cor */
+    margin: 0 auto; /*centraliza a div*/
+    position: relative; /*para as imagens respeitarem a delimitação da div*/
+    overflow: hidden; /*tudo que sair das delimitações do quadro não aparece mais na tela*/
+    
+}
+.clouds{
+    width: 450px;
+    position: absolute;
+    margin-bottom: 500px;
+    animation: clouds-animation 20s infinite linear;
+}
+.pipe{
+    position: absolute;
+    bottom: 0; /*para a imagem fica fixa na parte de baixo */
+    width: 80px;
+    animation: pipe-animation 2s infinite linear; /* faz a animaçao rodar infinitamnrte o linear deixar a animação mais fluida */
+
+}
+.mario{
+    width: 150px;
+    position: absolute;
+    bottom: 0px;
+     /*o mario pula demora 500 milesegundo e faz isso infinitamente*/
+} 
+.jump{
+    animation: jump 500ms ease-in-out ;/*o mario pula demora 500 milesegundo e faz isso infinitamente*/
+}
+.score{
+    
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.8rem;
+    margin-left: 15px;
+    
+}
+.scoreValue{
+    font-weight: 700;
+    font-size: 4.5rem;
+    display: block;
+    margin-top: -10px;
+}
+.menuScreen{
+    margin-top: 80px;
+    flex-direction: column;
+    display: none;
+    margin-left: 400px;
+    position: absolute;
+    align-items: center;
+    margin-top: 120px;
+    z-index: 1; /*coloca o menu game over na frente da nuvens*/
+}
+.gameOver{
+    text-transform: uppercase;/*para deixar tudo maiusculo*/
+    font-weight: 700;
+    font-size: 5rem;
+   
+}
+.finalScore{
+    font-weight: 500;
+    font-size: 1.5rem;
+   
+}
+.restartGame{
+    border: none;
+    border-radius: 100px;
+    padding: 10px 15px 10px 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color:#4f87ff;
+    background: linear-gradient(#ffffff, #4f87ff);
+}
+
+
+@keyframes pipe-animation{
+    from{
+        right:-450px;/*quando a animação começa*/
+    }
+    to{
+        right:100%/*quando a animação termina*/
+    }
+    
+}
+@keyframes jump{
+    0% {  /*quando a animação estiver em 0% o botton dele vai ser 0 */
+        bottom: 0;
+    }
+    48%{
+        bottom:180px;/*uma mediação para melhorar o aspecto do pulo*/
+    }
+    50%{
+        bottom:180px; /*quando estiver no meio da animação quando ela estiver em 50% o bottom vai ser 180*/
+    }
+    60%{
+        bottom:180px;/**uma mediação para melhorar o aspecto do pulo*/
+    }
+    100%{ /*quando ele terminar a animação ele voltara a zero*/
+        bottom:0;
+    }
+}
+@keyframes clouds-animation{
+    from{
+        right:-80px;/*quando a animação começa*/
+    }
+    to{
+        right:100%/*quando a animação termina*/
+    }
+}
